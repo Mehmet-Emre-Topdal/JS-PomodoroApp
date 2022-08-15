@@ -45,7 +45,8 @@ let id = 0;
  * the id is 1 more than the id of the last task in the list. */
 if (localStorage.getItem("taskList") !== null) {
     taskList = JSON.parse(localStorage.getItem("taskList"));
-    id = taskList[ taskList.length - 1] + 1;
+    
+    if(taskList.length !== 0) id = taskList[ taskList.length - 1].id + 1;
 } 
 
 const showAddForm = function(){
