@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+
+    <link rel="icon" type="image/x-icon" href="tomato.png">
+
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="todo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+        <div class="container-content">
+            
+            <div id="app">
+                <button class="btn btn-settings bg-glass"><i class="fa-solid fa-gear"></i> Settings</button>    
+
+                <section class="showcase bg-glass">
+                    <div class="pomodoro-type-btn-container f-around">
+                        <button  class="pomo btn-type btn-type-active">Pomodoro</button>
+                        <button class="short btn-type">Short Break</button>
+                        <button  class="long btn-type">Long Break</button>
+                    </div>
+
+                    <div class="timer f-center">
+                        <span class="time"></span>
+                    </div>
+
+                    <button class="btn-start-stop btn-start">Start</button>
+                    <button class="btn-start-stop btn-stop hidden">Pause</button>
+                </section>  
+
+                <section class="todo">
+                    <div class="todo-container">
+
+                        <div class="todo-header f-between">
+                            <p>Task List</p>
+                            <div>
+                                <button 
+                                id="clr-finished" class="btn-todo-settings">
+                                    Clr Finished
+                                </button>
+                                <button id="clr-all"
+                                class="btn-todo-settings">
+                                    Clr All
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <div class="tasks f-between-column">
+
+                            <div class="tasks-container w-100 f-between-column">
+                            </div>
+
+                            <div class="add-task-container w-100">
+                                <div class="add-task f-center">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                    <span id = "add-task">Add New Task</span>
+                                </div>
+                            </div>
+
+                            <div class="add-form w-100 hidden">
+                                <div class="add-header f-between">
+                                    <h4>Add Task</h4>
+                                    <i id="closeAddForm" class="fa-solid fa-xmark"></i>
+                                </div>
+                                <div class="add-body">
+                                    
+                                    <form>
+
+                                        <label for="name-add">Task Name</label>
+                                        <input type="text" name="name-add" id="name-add">
+
+                                        <label for="pomo-num-add">Estimated Pomodoros</label>
+                                        <input type="text" name="pomo-num-add" id="pomo-num-add">
+
+                                    </form>
+
+                                </div>
+                                <div class="add-footer f-end">
+                                    <button class="cancel-add btn-transparent">
+                                        Cancel
+                                    </button>
+
+                                    <button class="btn-add">Add</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    
+
+    <!-- MODALS -->
+        <div class="modal hidden">
+                <p>If you switch to another mode or start over in the same mode, the counter will be reset. Are you sure you want to start over?
+                </p>
+
+                <button class="btn-modal reset">Yes, reset timer</button>
+                <button class="btn-modal continue">No, continue</button>
+        </div>
+
+   <div class="settings-modal hidden">
+
+        <div class="settings-header f-between">
+            <p>TIMER SETTINGS</p>
+
+            <button class=" close"><i class="fa-solid fa-xmark"></i></button>
+        </div> 
+        
+        <div class="settings-content">
+            <form>
+
+                <label for="pomodoro-time">Pomodoro</label>
+                <input type="number" id="pomodoro-time" name="pomodoro-time" min="1" max="60">
+
+                <label for="short-time">Short Break</label>
+                <input type="number" id="short-time" name="short-time" min="1" max="60">
+
+                <label for="long-time">Long Break</label>
+                <input type="number" id="long-time" name="long-time" min="1" max="60">
+
+                <p class="message"></p>
+            </form>
+        </div>
+
+        <div class="settings-footer f-center">
+            <button class="btn-settings-ok">OK</button>
+        </div>
+
+    </div>
+
+   <div class="overlay hidden"></div>
+
+   <script src="script.js"></script>
+</body>
+</html>

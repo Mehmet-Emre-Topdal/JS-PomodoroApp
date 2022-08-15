@@ -1,0 +1,207 @@
+
+body{
+    background-color: var(--bg-pomodoro);
+    transition: all 0.5s;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+
+#app{
+    height: 90vh;
+}
+
+.bg-glass{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.container-content{
+    padding-top: 15px;
+    width: 50%;
+    margin:auto;
+}
+
+
+.btn-settings{
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    color:white;
+    font-size: medium;
+    margin-bottom: 20px;
+}
+
+.settings-modal{
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    width: 40vw;
+
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.settings-header{
+    border-bottom: 1px solid gray;
+    color: gray;
+}
+
+.settings-header .close{
+    color: gray;
+    background: transparent;
+    border: none;
+    font-size: x-large;
+}
+
+.settings-content{
+    padding: 10px ;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.settings-footer{
+    border-top:1px solid gray;
+    padding-top:25px;
+}
+
+.btn-settings-ok{
+    border: none;
+    background: transparent;
+    color:white;
+    background-color: black;
+    padding: 10px 30px;
+    font-size: large;
+}
+
+.showcase{
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 50vh;
+    color: white;
+    gap: 20px;
+}
+
+
+
+.btn-type{
+    border: none;
+    padding: 5px;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.btn-type-active{
+    color:white;
+}
+
+.pomodoro-type-btn-container{
+    width:100%; 
+}
+
+.timer{
+    height: 20vh;
+    width: 100%;
+    padding: 25px;
+}
+
+.time{
+    font-size: 75px;
+}
+
+.btn-start-stop{
+    width: 15vw;
+    height: 10vh;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/*MODAL AND OVERLAY*/
+
+.modal{
+    font-size: large;
+    position:fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.modal p{
+    margin-bottom: 15px;
+} 
+
+.btn-modal{
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+    color:white;
+}
+
+.continue{
+    background-color: var(--bg-short);
+}
+
+.reset{
+    background-color: var(--bg-pomodoro);
+}
+
+.overlay {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+#closeAddForm{
+    cursor:pointer;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .container-content{
+        width: 90%
+    }
+}
+ 
+
