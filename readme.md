@@ -1,4 +1,6 @@
-a pomodoro app coded by Mehmet Emre Topdal. There is not any copyright etc. if you want to utilize it, just utilize it.
+Netlify Demo: https://metpomodoro.netlify.app/
+
+Pomodoro app coded by Mehmet Emre Topdal. There is not any copyright etc. if you want to utilize it, just utilize it.
 
 App containes two beginner projects: A countdown timer and to do apps, and of course and interaction between them.
 
