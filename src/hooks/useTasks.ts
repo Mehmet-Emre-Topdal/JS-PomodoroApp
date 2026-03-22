@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Task } from '../types'
 
 interface UseTasks {
@@ -33,7 +33,7 @@ export function useTasks(): UseTasks {
     return () => window.removeEventListener('unload', save)
   }, [taskList])
 
-  const addTask = (name: string, estimated: number) => {
+  const addTask = useCallback((name: string, estimated: number) => {
     const newTask: Task = {
       id: nextIdRef.current++,
       name,
@@ -43,28 +43,28 @@ export function useTasks(): UseTasks {
       isFinished: false,
     }
     setTaskList(prev => [...prev, newTask])
-  }
+  }, [])
 
-  const deleteTask = (id: number) => {
+  const deleteTask = useCallback((id: number) => {
     setTaskList(prev => prev.filter(t => t.id !== id))
-  }
+  }, [])
 
-  const editTask = (id: number, name: string, estimated: number) => {
+  const editTask = useCallback((id: number, name: string, estimated: number) => {
     setTaskList(prev =>
       prev.map(t => (t.id === id ? { ...t, name, estimated } : t))
     )
-  }
+  }, [])
 
-  const toggleActive = (id: number) => {
+  const toggleActive = useCallback((id: number) => {
     setTaskList(prev =>
       prev.map(t => {
         if (t.id === id) return { ...t, isActive: !t.isActive }
         return { ...t, isActive: false }
       })
     )
-  }
+  }, [])
 
-  const incrementActiveTask = () => {
+  const incrementActiveTask = useCallback(() => {
     setTaskList(prev =>
       prev.map(t => {
         if (!t.isActive) return t
@@ -75,11 +75,11 @@ export function useTasks(): UseTasks {
         return { ...t, completed: newCompleted }
       })
     )
-  }
+  }, [])
 
-  const clearAll = () => setTaskList([])
+  const clearAll = useCallback(() => setTaskList([]), [])
 
-  const clearFinished = () => setTaskList(prev => prev.filter(t => !t.isFinished))
+  const clearFinished = useCallback(() => setTaskList(prev => prev.filter(t => !t.isFinished)), [])
 
   return { taskList, addTask, deleteTask, editTask, toggleActive, incrementActiveTask, clearAll, clearFinished }
 }
